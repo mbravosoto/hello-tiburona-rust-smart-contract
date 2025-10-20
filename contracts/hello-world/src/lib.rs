@@ -309,11 +309,11 @@ mod test {
         
         client.initialize(&admin);
         
-        // ⭐ Hacer saludos con String
+        // Make hellos with string
         client.hello(&usuario, &String::from_str(&env, "Test"));
         assert_eq!(client.get_contador(), 1);
         
-        // Admin puede resetear
+        // Admin can reset
         client.reset_contador(&admin);
         assert_eq!(client.get_contador(), 0);
     }
@@ -352,7 +352,7 @@ mod test {
                 .set(&DataKey::ContadorPorUsuario(usuario.clone()), &3u32);
         });
 
-        // Call th function as client of the contract
+        // Call the function as client of the contract
         let contador = client.get_contador_usuario(&usuario);
         assert_eq!(contador, 3);
     }
