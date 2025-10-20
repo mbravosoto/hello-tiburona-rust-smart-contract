@@ -12,7 +12,8 @@ A Rust-based Soroban smart contract that manages personalized greetings, user co
 - 🧪 Comprehensive unit tests with panic handling
 
 
-## Project Structure
+## 🗂️ Project Structure
+
 
 This repository uses the recommended structure for a Soroban project:
 ```text
@@ -34,7 +35,7 @@ This repository uses the recommended structure for a Soroban project:
 - Frontend libraries can be added to the top-level directory as well. If you initialized this project with a frontend template via `--frontend-template` you will have those files already included.
 
 
-## Prerequisites
+## 📝 Prerequisites
 
 Install Rustc, cargo and stellar-cli. Additional commands required for windows and to validate the installations:
 * `rustc --version` >= 1.70
@@ -45,13 +46,13 @@ Install Rustc, cargo and stellar-cli. Additional commands required for windows a
 * Enable Optimization Target: `rustup target add wasm32v1-none`
 
 
-## Project Initialization
+## 🔧 Project Initialization
 
 This step was already done to create a new project from scratch
 `stellar contract init hello-tiburonas`
 
 
-## Execution Procedure
+## 💻 Execution Procedure
 
 * Validate the project: `cargo check`
 
@@ -74,7 +75,7 @@ This step was already done to create a new project from scratch
 ![Optimize WASM file](img/stellar_contract_optimize.png)
 
 
-## 🚀 Contract Overview
+## 🧠 Contract Overview
 
 The following functions will be found:
 
@@ -86,7 +87,7 @@ The following functions will be found:
 - Sets default character limit (32)
 - Extends TTL for storage
 
-### Core Function
+### 🧩 Core Function
 
 `hello(env, user, name) -> Result<Symbol, Error>`
 - Validates name (non-empty, within limit)
@@ -94,19 +95,19 @@ The following functions will be found:
 - Stores last greeting
 - Returns "Hola" as a symbol
 
-### Consult Functions
+### 🔍 Consult Functions
 
 - `get_contador(env) -> u32`: Returns total number of greetings
 - `get_ultimo_saludo(env, user) -> Option<String>`: Returns the last greeting sent by a user
 - `get_contador_usuario(env, user) -> u32`: Returns the number of greetings sent by a specific user
 
-### Admin Functions
+### 🔐 Admin Functions
 
 - `reset_contador(env, caller) -> Result<(), Error>`: Resets the global greeting counter, only callable by admin
 - `transfer_admin(env, caller, new_admin) -> Result<(), Error>`: Transfers contract ownership to a new admin
 - `set_limite(env, caller, limit) -> Result<(), Error>`: Sets the maximum character limit for names
 
-### Error Codes
+### ⚠️ Error Codes
 
 The error codes and function naming convention follow the traits to guarantee that this contact can communicate with others.
 - **1**: NombreVacio - Name is empty
@@ -139,7 +140,7 @@ The contract includes a comprehensive test suite using Soroban’s Env and Addre
 - **test_nombre_vacio:** Rejects empty name input `(Error #1: NombreVacio)`
 - **test_reset_no_autorizado:** Blocks reset from non-admin user `(Error #3: NoAutorizado)`
 
-### Tests Highlights
+### 🧬 Tests Highlights
 
 - Uses `String::from_str(&env, "")` to simulate empty input
 - Validates error codes with `#[should_panic(expected = "...")]`
