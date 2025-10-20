@@ -129,16 +129,16 @@ The contract includes a comprehensive test suite using Soroban’s Env and Addre
 
 ### Success Cases
 
-- **test_initialize:** Initializes the contract and verifies the counter starts at 0
-- **test_hello_exitoso:** Sends a valid greeting and checks counter and storage
-- **test_reset_solo_admin:** Admin resets the counter successfully
-- ⭐ **test_contador_usuario:** Verifies per-user counter retrieval from persistent storage
+- `test_initialize:` Initializes the contract and verifies the counter starts at 0
+- `test_hello_exitoso:` Sends a valid greeting and checks counter and storage
+- `test_reset_solo_admin:` Admin resets the counter successfully
+- `test_contador_usuario:` Verifies per-user counter retrieval from persistent storage ⭐
 
 ### Failure Cases
 
-- **test_no_reinicializar:** Prevents reinitialization `(Error #4: NoInicializado)`
-- **test_nombre_vacio:** Rejects empty name input `(Error #1: NombreVacio)`
-- **test_reset_no_autorizado:** Blocks reset from non-admin user `(Error #3: NoAutorizado)`
+- `test_no_reinicializar:` Prevents reinitialization `(Error #4: NoInicializado)`
+- `test_nombre_vacio:` Rejects empty name input `(Error #1: NombreVacio)`
+- `test_reset_no_autorizado:` Blocks reset from non-admin user `(Error #3: NoAutorizado)`
 
 ### Tests Highlights
 
