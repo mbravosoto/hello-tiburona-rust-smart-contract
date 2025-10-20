@@ -291,9 +291,8 @@ mod test {
         
         client.initialize(&admin);
         
-        // ⭐ Usar String::from_str para string vacío
         let vacio = String::from_str(&env, "");
-        client.hello(&usuario, &vacio);  // Debe fallar
+        client.hello(&usuario, &vacio);  // Must Fail
     }
 
     // Reset just with admin permissions
