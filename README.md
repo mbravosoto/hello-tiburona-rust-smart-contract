@@ -55,23 +55,23 @@ This step was already done to create a new project from scratch
 
 * Validate the project: `cargo check`
 
-[Cargo Check](img/cargo_check.png)
+![Cargo Check](img/cargo_check.png)
 
 * Compile project and verify: `cargo build --target wasm32-unknown-unknown --release`. This command will generate.wasm file in `target/wasm32-unknown-unknown/release/hello_world.wasm`. `Validate with ls target/wasm32-unknown-unknown/release/`
 
-[Cargo Build](img/cargo_build.png)
+![Cargo Build](img/cargo_build.png)
 
 * Run tests: `cargo test`
 
-[Cargo Tests](img/cargo_test.png)
+![Cargo Tests](img/cargo_test.png)
 
 * Optimized Build: `stellar contract build`. This command generates `hello_world.wasm` file
 
-[Optimized Build](img/stellar_contract_build.png)
+![Optimized Build](img/stellar_contract_build.png)
 
 * Optimize WASM file: `stellar contract optimize --wasm target/wasm32-unknown-unknown/release/hello_world.wasm`
 
-[Optimize WASM file](img/stellar_contract_optimize.png)
+![Optimize WASM file](img/stellar_contract_optimize.png)
 
 
 ## 🚀 Contract Overview
