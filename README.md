@@ -87,7 +87,7 @@ The following functions will be found:
 - Sets default character limit (32)
 - Extends TTL for storage
 
-### 🧩 Core Function
+### Core Function
 
 `hello(env, user, name) -> Result<Symbol, Error>`
 - Validates name (non-empty, within limit)
@@ -95,19 +95,19 @@ The following functions will be found:
 - Stores last greeting
 - Returns "Hola" as a symbol
 
-### 🔍 Consult Functions
+### Consult Functions
 
 - `get_contador(env) -> u32`: Returns total number of greetings
 - `get_ultimo_saludo(env, user) -> Option<String>`: Returns the last greeting sent by a user
 - `get_contador_usuario(env, user) -> u32`: Returns the number of greetings sent by a specific user
 
-### 🔐 Admin Functions
+### Admin Functions
 
 - `reset_contador(env, caller) -> Result<(), Error>`: Resets the global greeting counter, only callable by admin
 - `transfer_admin(env, caller, new_admin) -> Result<(), Error>`: Transfers contract ownership to a new admin
 - `set_limite(env, caller, limit) -> Result<(), Error>`: Sets the maximum character limit for names
 
-### ⚠️ Error Codes
+### Error Codes
 
 The error codes and function naming convention follow the traits to guarantee that this contact can communicate with others.
 - **1**: NombreVacio - Name is empty
@@ -116,7 +116,7 @@ The error codes and function naming convention follow the traits to guarantee th
 - **4**: NoInicializado - Contract not initialized or already set
 
 
-### 🗂️ Storage Strategy
+### Storage Strategy
 
 - `instance()` → Global data (admin, counter, character limit)
 - `persistent()` → Per-user data (last greeting, user counter)
@@ -127,20 +127,20 @@ The error codes and function naming convention follow the traits to guarantee th
 
 The contract includes a comprehensive test suite using Soroban’s Env and Address test utilities. Run all tests with: `cargo test`
 
-### ✅ Success Cases
+### Success Cases
 
 - **test_initialize:** Initializes the contract and verifies the counter starts at 0
 - **test_hello_exitoso:** Sends a valid greeting and checks counter and storage
 - **test_reset_solo_admin:** Admin resets the counter successfully
 - ⭐ **test_contador_usuario:** Verifies per-user counter retrieval from persistent storage
 
-### ❌ Failure Cases
+### Failure Cases
 
 - **test_no_reinicializar:** Prevents reinitialization `(Error #4: NoInicializado)`
 - **test_nombre_vacio:** Rejects empty name input `(Error #1: NombreVacio)`
 - **test_reset_no_autorizado:** Blocks reset from non-admin user `(Error #3: NoAutorizado)`
 
-### 🧬 Tests Highlights
+### Tests Highlights
 
 - Uses `String::from_str(&env, "")` to simulate empty input
 - Validates error codes with `#[should_panic(expected = "...")]`
@@ -151,20 +151,9 @@ The contract includes a comprehensive test suite using Soroban’s Env and Addre
 
 A basic hello-world Soroban contract can be generated using the CLI, but it typically lacks error handling, input validation, and access control. This project rewrites that foundation with a secure, production-ready implementation that includes robust logic, admin permissions, and test coverage.
 
-To generate a simple hello-world contract:
-`stellar contract init hello_world`
-
-This creates a minimal contract structure inside the `contracts/hello_world/` directory.
-
-To compile and run it with Rust:
-`rustup target add wasm32-unknown-unknown`
-`cargo build --target wasm32-unknown-unknown --release`
-
-The compiled .wasm file will be located at:
-`target/wasm32-unknown-unknown/release/hello_world.wasm`
-
-Then can be deployed or optimized using Soroban CLI tools.
+To generate a simple hello-world contract execute `stellar contract init hello_world`. This creates a minimal contract structure inside the `contracts/hello_world/` directory. To compile and run it with Rust execute `rustup target add wasm32-unknown-unknown` and `cargo build --target wasm32-unknown-unknown --release`. The compiled .wasm file will be located at
+`target/wasm32-unknown-unknown/release/hello_world.wasm`. Then can be deployed or optimized using Soroban CLI tools.
 
 
-## Contributions
+## 🤝 Contributions
 This project was made as part of Rust Advanced Soroban homework from [Código Futura course](https://github.com/BuenDia-Builders/codigofutura/tree/main/2da-semana-rust-consolidado/4-Clase) organized by Buen Día Builders.
