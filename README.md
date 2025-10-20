@@ -99,13 +99,13 @@ The following functions will be found:
 
 - `get_contador(env) -> u32`: Returns total number of greetings
 - `get_ultimo_saludo(env, user) -> Option<String>`: Returns the last greeting sent by a user
-- `get_contador_usuario(env, user) -> u32`: Returns the number of greetings sent by a specific user
+- `get_contador_usuario(env, user) -> u32`: Returns the number of greetings sent by a specific user ⭐
 
 ### Admin Functions
 
 - `reset_contador(env, caller) -> Result<(), Error>`: Resets the global greeting counter, only callable by admin
-- `transfer_admin(env, caller, new_admin) -> Result<(), Error>`: Transfers contract ownership to a new admin
-- `set_limite(env, caller, limit) -> Result<(), Error>`: Sets the maximum character limit for names
+- `transfer_admin(env, caller, new_admin) -> Result<(), Error>`: Transfers contract ownership to a new admin ⭐
+- `set_limite(env, caller, limit) -> Result<(), Error>`: Sets the maximum character limit for names ⭐
 
 ### Error Codes
 
