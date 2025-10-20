@@ -58,7 +58,7 @@ This step was already done to create a new project from scratch
 
 ![Cargo Check](img/cargo_check.png)
 
-* Compile project and verify: `cargo build --target wasm32-unknown-unknown --release`. This command will generate.wasm file in `target/wasm32-unknown-unknown/release/hello_world.wasm`. `Validate with ls target/wasm32-unknown-unknown/release/`
+* Compile project and verify: `cargo build --target wasm32-unknown-unknown --release`. This command will generate.wasm file in `target/wasm32-unknown-unknown/release/hello_world.wasm`. Validate with `ls target/wasm32-unknown-unknown/release/`
 
 ![Cargo Build](img/cargo_build.png)
 
