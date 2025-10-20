@@ -54,14 +54,23 @@ This step was already done to create a new project from scratch
 ## Execution Procedure
 
 * Validate the project: `cargo check`
+
 [Cargo Check](img/cargo_check.png)
+
 * Compile project and verify: `cargo build --target wasm32-unknown-unknown --release`. This command will generate.wasm file in `target/wasm32-unknown-unknown/release/hello_world.wasm`. `Validate with ls target/wasm32-unknown-unknown/release/`
+
 [Cargo Build](img/cargo_build.png)
+
 * Run tests: `cargo test`
+
 [Cargo Tests](img/cargo_test.png)
+
 * Optimized Build: `stellar contract build`. This command generates `hello_world.wasm` file
+
 [Optimized Build](img/stellar_contract_build.png)
+
 * Optimize WASM file: `stellar contract optimize --wasm target/wasm32-unknown-unknown/release/hello_world.wasm`
+
 [Optimize WASM file](img/stellar_contract_optimize.png)
 
 
@@ -91,13 +100,13 @@ The following functions will be found:
 - `get_ultimo_saludo(env, user) -> Option<String>`: Returns the last greeting sent by a user
 - `get_contador_usuario(env, user) -> u32`: Returns the number of greetings sent by a specific user
 
-### 🔐 Admin Functions
+### Admin Functions
 
 - `reset_contador(env, caller) -> Result<(), Error>`: Resets the global greeting counter, only callable by admin
 - `transfer_admin(env, caller, new_admin) -> Result<(), Error>`: Transfers contract ownership to a new admin
 - `set_limite(env, caller, limit) -> Result<(), Error>`: Sets the maximum character limit for names
 
-### ⚠️ Error Codes:
+### Error Codes
 
 The error codes and function naming convention follow the traits to guarantee that this contact can communicate with others.
 - **1**: NombreVacio - Name is empty
@@ -130,7 +139,7 @@ The contract includes a comprehensive test suite using Soroban’s Env and Addre
 - **test_nombre_vacio:** Rejects empty name input `(Error #1: NombreVacio)`
 - **test_reset_no_autorizado:** Blocks reset from non-admin user `(Error #3: NoAutorizado)`
 
-### 🧪 Tests Highlights
+### Tests Highlights
 
 - Uses `String::from_str(&env, "")` to simulate empty input
 - Validates error codes with `#[should_panic(expected = "...")]`
